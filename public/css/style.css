@@ -1,0 +1,129 @@
+/* Style Settings */
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&display=swap');
+:root {
+    --bgColor: #fbf8f8;
+    --accentColor: #f348a7;
+    --complementColor: #FFFFFF;
+    --font: 'Josefin Sans', sans-serif;
+
+}
+
+body{
+    background-color: var(--bgColor);
+}
+
+div {
+    display: block;
+}
+
+#userPhoto{
+    width: 110px;
+    height: 110px;
+    display: block;
+    margin: 35px auto 20px;
+    border: 1px;
+    border-radius: 30%;
+    border-style: dotted;
+    border-color: var(--accentColor)
+}
+
+#userName{
+    color: var(--accentColor);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#links{
+    max-width: 500px;
+    width: auto;
+    display: block;
+    margin: 27px auto;
+}
+
+.link {
+    margin-bottom: 16px;
+    padding: 0;
+    position: relative;
+}
+
+.link  a{
+    display: block;
+    background-color: var(--accentColor);
+    color: var(--bgColor);
+    font-family: var(--font);
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 17px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all .25s cubic-bezier(.08,.59,.29,.99);
+    border-color: var(--complementColor);
+    border: 1px;
+    border-style: dotted;
+    border-radius: 30px;
+}
+
+.link > a:hover{
+    background-color: var(--bgColor);
+    color: var(--accentColor);
+}
+
+.link .icon-wrap {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 100%;
+    max-height: 46px;
+    max-width: 46px;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+    border-radius: 30px;
+}
+
+.icon-wrap--thumbnail img {
+    height: 100%;
+}
+
+.user-profile__social__links {
+    margin: 50px auto 70px;
+    position: relative;
+    left: 0;
+    width: 100%;
+    bottom: 15px;
+}
+
+.user-profile__social__links__item {
+    cursor: pointer;
+    width: 60px;
+    max-width: 50px;
+    transition: transform cubic-bezier(.23,1,.32,1);
+}
+
+.user-profile__social__links__item:hover{
+    -webkit-transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        transform: rotateZ(-30deg);
+}
+
+.user-profile__social-icon {
+    fill: #e40f81;
+}
+
+.user-profile__no-social__links, .user-profile__social__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
