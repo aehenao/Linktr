@@ -1,251 +1,176 @@
-<div id="top">
-
-    <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
-        <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
-            <i class="icon-align-justify"></i>
-        </a>
-        <!-- LOGO SECTION -->
-        <header class="navbar-header">
-
-            <a href="index.html" class="navbar-brand">
-                <img src="assets/img/logo.png" alt="" />
+  <header class="topbar" data-navbarbg="skin5">
+    <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <div class="navbar-header" data-logobg="skin5">
+            <!-- This is for the sidebar toggle which is visible on mobile only -->
+            <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <a class="navbar-brand" href="index.html">
+                <!-- Logo icon -->
+                <b class="logo-icon p-l-10">
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <img src="../../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                    
+                </b>
+                <!--End Logo icon -->
+                <!-- Logo text -->
+                <span class="logo-text">
+                   <!-- dark Logo text -->
+                   <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                   
+               </span>
+               <!-- Logo icon -->
+               <!-- <b class="logo-icon"> -->
+                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <!-- <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
                 
+                <!-- </b> -->
+                <!--End Logo icon -->
             </a>
-        </header>
-        <!-- END LOGO SECTION -->
-        <ul class="nav navbar-top-links navbar-right">
-
-            <!-- MESSAGES SECTION -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <span class="label label-success">2</span>    <i class="icon-envelope-alt"></i>&nbsp; <i class="icon-chevron-down"></i>
-                </a>
-
-                <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <a href="#">
-                            <div>
-                             <strong>John Smith</strong>
-                             <span class="pull-right text-muted">
-                                <em>Today</em>
-                            </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing.
-                            <br />
-                            <span class="label label-primary">Important</span> 
-
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <strong>Raphel Jonson</strong>
-                            <span class="pull-right text-muted">
-                                <em>Yesterday</em>
-                            </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing.
-                           <br />
-                           <span class="label label-success"> Moderate </span> 
-                       </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Toggle which is visible on mobile only -->
+            <!-- ============================================================== -->
+            <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav float-left mr-auto">
+                <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                <!-- ============================================================== -->
+                <!-- create new -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                       <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
                    </a>
-               </li>
-               <li class="divider"></li>
-               <li>
-                <a href="#">
-                    <div>
-                        <strong>Chi Ley Suk</strong>
-                        <span class="pull-right text-muted">
-                            <em>26 Jan 2014</em>
-                        </span>
-                    </div>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing.
-                       <br />
-                       <span class="label label-danger"> Low </span> 
-                   </div>
-               </a>
-           </li>
-           <li class="divider"></li>
-           <li>
-            <a class="text-center" href="#">
-                <strong>Read All Messages</strong>
-                <i class="icon-angle-right"></i>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<!--END MESSAGES SECTION -->
-
-<!--TASK SECTION -->
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <span class="label label-danger">5</span>   <i class="icon-tasks"></i>&nbsp; <i class="icon-chevron-down"></i>
-    </a>
-
-    <ul class="dropdown-menu dropdown-tasks">
-        <li>
-            <a href="#">
-                <div>
-                    <p>
-                        <strong> Profile </strong>
-                        <span class="pull-right text-muted">40% Complete</span>
-                    </p>
-                    <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                            <span class="sr-only">40% Complete (success)</span>
+                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <!-- ============================================================== -->
+            <!-- Search -->
+            <!-- ============================================================== -->
+            <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                <form class="app-search position-absolute">
+                    <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                </form>
+            </li>
+        </ul>
+        <!-- ============================================================== -->
+        <!-- Right side toggle and nav items -->
+        <!-- ============================================================== -->
+        <ul class="navbar-nav float-right">
+            <!-- ============================================================== -->
+            <!-- Comment -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <!-- ============================================================== -->
+            <!-- End Comment -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Messages -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                    <ul class="list-style-none">
+                        <li>
+                            <div class="">
+                               <!-- Message -->
+                               <a href="javascript:void(0)" class="link border-top">
+                                <div class="d-flex no-block align-items-center p-10">
+                                    <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
+                                    <div class="m-l-10">
+                                        <h5 class="m-b-0">Event today</h5> 
+                                        <span class="mail-desc">Just a reminder that event</span> 
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Message -->
+                            <a href="javascript:void(0)" class="link border-top">
+                                <div class="d-flex no-block align-items-center p-10">
+                                    <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                                    <div class="m-l-10">
+                                        <h5 class="m-b-0">Settings</h5> 
+                                        <span class="mail-desc">You can customize this template</span> 
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Message -->
+                            <a href="javascript:void(0)" class="link border-top">
+                                <div class="d-flex no-block align-items-center p-10">
+                                    <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                                    <div class="m-l-10">
+                                        <h5 class="m-b-0">Pavan kumar</h5> 
+                                        <span class="mail-desc">Just see the my admin!</span> 
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Message -->
+                            <a href="javascript:void(0)" class="link border-top">
+                                <div class="d-flex no-block align-items-center p-10">
+                                    <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
+                                    <div class="m-l-10">
+                                        <h5 class="m-b-0">Luanch Admin</h5> 
+                                        <span class="mail-desc">Just see the my new admin!</span> 
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                </div>
-            </a>
+                    </li>
+                </ul>
+            </div>
         </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <p>
-                        <strong> Pending Tasks </strong>
-                        <span class="pull-right text-muted">20% Complete</span>
-                    </p>
-                    <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                            <span class="sr-only">20% Complete</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
+        <!-- ============================================================== -->
+        <!-- End Messages -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- User profile and search -->
+        <!-- ============================================================== -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                <div class="dropdown-divider"></div>
+                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+            </div>
         </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <p>
-                        <strong> Work Completed </strong>
-                        <span class="pull-right text-muted">60% Complete</span>
-                    </p>
-                    <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                            <span class="sr-only">60% Complete (warning)</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <p>
-                        <strong> Summary </strong>
-                        <span class="pull-right text-muted">80% Complete</span>
-                    </p>
-                    <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                            <span class="sr-only">80% Complete (danger)</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a class="text-center" href="#">
-                <strong>See All Tasks</strong>
-                <i class="icon-angle-right"></i>
-            </a>
-        </li>
+        <!-- ============================================================== -->
+        <!-- User profile and search -->
+        <!-- ============================================================== -->
     </ul>
-
-</li>
-<!--END TASK SECTION -->
-
-<!--ALERTS SECTION -->
-<li class="chat-panel dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <span class="label label-info">8</span>   <i class="icon-comments"></i>&nbsp; <i class="icon-chevron-down"></i>
-    </a>
-
-    <ul class="dropdown-menu dropdown-alerts">
-
-        <li>
-            <a href="#">
-                <div>
-                    <i class="icon-comment" ></i> New Comment
-                    <span class="pull-right text-muted small"> 4 minutes ago</span>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <i class="icon-twitter info"></i> 3 New Follower
-                    <span class="pull-right text-muted small"> 9 minutes ago</span>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <i class="icon-envelope"></i> Message Sent
-                    <span class="pull-right text-muted small" > 20 minutes ago</span>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <i class="icon-tasks"></i> New Task
-                    <span class="pull-right text-muted small"> 1 Hour ago</span>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#">
-                <div>
-                    <i class="icon-upload"></i> Server Rebooted
-                    <span class="pull-right text-muted small"> 2 Hour ago</span>
-                </div>
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a class="text-center" href="#">
-                <strong>See All Alerts</strong>
-                <i class="icon-angle-right"></i>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<!-- END ALERTS SECTION -->
-
-<!--ADMIN SETTINGS SECTIONS -->
-
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
-    </a>
-
-    <ul class="dropdown-menu dropdown-user">
-        <li><a href="#"><i class="icon-user"></i> User Profile </a>
-        </li>
-        <li><a href="#"><i class="icon-gear"></i> Settings </a>
-        </li>
-        <li class="divider"></li>
-        <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
-        </li>
-    </ul>
-
-</li>
-<!--END ADMIN SETTINGS -->
-</ul>
-
-</nav>
-
 </div>
+</nav>
+</header>

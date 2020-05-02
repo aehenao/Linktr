@@ -16,9 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function(){
-	return view('layouts.admin');
+Route::get('/inicio', function(){
+	return view('admin.index');
 });
+
+Route::get('/links', 'LinkController@index');
+Route::get('/links/new', 'LinkController@create');
+Route::post('/links/create', 'LinkController@store');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
