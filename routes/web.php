@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/inicio', function(){
 	return view('admin.index');
 });
@@ -23,8 +22,11 @@ Route::get('/inicio', function(){
 Route::get('/links', 'LinkController@index');
 Route::get('/links/new', 'LinkController@create');
 Route::post('/links/create', 'LinkController@store');
+Route::get('/links/{link}/edit', 'LinkController@edit');
+Route::put('/links/{link}', 'LinkController@update');
+Route::delete('/links/{link}', 'LinkController@destroy');
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

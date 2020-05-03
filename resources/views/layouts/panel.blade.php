@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title>Desarrollo</title>
+  <title>@littlecory3</title>
   <link rel="stylesheet" href="{{asset('css/anime.css')}}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
@@ -15,16 +15,16 @@
      display: none;
      position: absolute;
      width: 100%;
-     height: 0;
      max-width: 65%;
+
     
 
    }
 
    #imgUP{
     width: 100%;
-    height: auto;
     max-width: 65%;
+    max-height: 200px !important;
     border: 1px solid #000;
    }
 

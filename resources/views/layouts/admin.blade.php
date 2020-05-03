@@ -10,11 +10,13 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>@littlecory3 | Admin</title>
     <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('dist/css/style.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/libs/toastr/build/toastr.min.css')}}" rel="stylesheet">
+    @yield('styles')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -58,7 +60,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-             <div class="page-breadcrumb">
+            <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">@yield('subtitle')</h4>
@@ -78,7 +80,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-           @include('includes.admin.footer')
+            @include('includes.admin.footer')
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -116,6 +118,39 @@
     <script src="{{ asset('assets/libs/flot/jquery.flot.crosshair.js')}}"></script>
     <script src="{{ asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
     <script src="{{ asset('dist/js/pages/chart/chart-page-init.js')}}"></script>
+
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{asset('assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{{asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
+    <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <!--Wave Effects -->
+    <script src="{{asset('dist/js/waves.js')}}"></script>
+    <!--Menu sidebar -->
+    <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
+
+    <!--Custom JavaScript -->
+    <script src="{{asset('dist/js/custom.min.js')}}"></script>
+
+    <!-- this page js -->
+    <script src="{{asset('assets/libs/toastr/build/toastr.min.js')}}"></script>
+
+    <script>
+        $(function(){
+            const error = @json($errors->all());
+
+            @if(Session::has('notification'))
+            
+            toastr.success('{{ session('notification') }}', 'Exito');
+            @endif
+
+            // $('#ts-error').on('click', function() {
+            //     toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
+            // });
+        });
+    </script>
+
 
 </body>
 

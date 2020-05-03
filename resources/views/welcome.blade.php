@@ -4,7 +4,7 @@
 
     <img id="userPhoto" src="{{asset('images/profile.jpg')}}" alt="User Photo">
     
-    <a href="https://www.instagram.com/thesimpsons" id="userName">
+    <a href="#" id="userName">
         @littlecory3
     </a>
 

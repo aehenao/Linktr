@@ -31,28 +31,43 @@
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($links as $link)
 						<tr>
-							<td >1</td>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>ico</td>
+							
+							<td >{{$link->name}}</td>
+							<td>{{$link->link}}</td>
 							<td>
-								<form action="{{ url('/uo/' ) }}" method="POST">
+								@if($link->status == 'on')
+								Activo
+								@else
+								Inactivo
+								@endif
+							</td>
+							<td>
+								<div class="p-2">
+									<img src="{{asset($link->ico)}}" class="rounded-circle" width="40">
+								</div>
+
+							</td>
+							<td>
+								<form action="{{ url('/links/' . $link->id ) }}" method="POST">
 									@csrf
 									@method('DELETE')
 
-									<a class="btn btn-outline-success">
+									<a href="{{url('/links/' . $link->id . '/edit')}}" class="btn btn-outline-success">
 										<i class="fas fa-edit"></i>
 
 									</a>
 
-									<button type="button" class="btn btn-outline-danger">
+									<button type="submit" class="btn btn-outline-danger">
 										<i class="fas fa-trash-alt"></i>
 									</button>
 								</form>
 								
 							</td>
+							
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>
