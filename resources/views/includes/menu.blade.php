@@ -4,12 +4,27 @@
 
 	@if($link->status == 'on')
 	<div class="link">
-		<a class="openpop" href="{{$link->link}}" target="_blank" data-link-id="" data-thumbnail="{{asset($link->preview)}}">
-			<div class="icon-wrap icon-wrap--thumbnail">
+		<a class="openpop " href="{{$link->link}}" target="_blank" data-link-id="" data-thumbnail="{{asset($link->preview)}}">
+
+			<div class="icon-wrap icon-wrap--thumbnail @if($link->online == 'on') active @endif">
 
 				<img src="{{asset($link->ico)}}" loading="lazy" alt="thumbnail">
 			</div>
-			{{$link->name}}
+
+			{{-- <i class="mdi mdi-bomb ico"></i > --}}
+
+			@if(strcasecmp($link->name, 'chaturbate') == 0 and $link->online == 'on')
+			 <p class="textName chaturbate "></p>
+			@elseif(strcasecmp($link->name, 'stripchat') == 0 and $link->online == 'on')
+			  <p class="textName stripchat"></p>
+			@else
+			 <p class="textName">{{$link->name}} </p>
+
+		@endif 
+
+			
+			
+			
 		</a>
 
 	</div>

@@ -7,11 +7,10 @@
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/inicio" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/online" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Online</span></a></li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/links" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Menu</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Pie de Pagina</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/footers" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Pie de Pagina</span></a></li>
 
                        {{--  <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -20,7 +19,7 @@
                             </ul>
                         </li> --}}
 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Cerrar Sesíon</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('logout')}}" aria-expanded="false"><i class="mdi mdi-exit-to-app"></i><span class="hide-menu">Cerrar Sesíon</span></a></li>
 
                         
                     </ul>

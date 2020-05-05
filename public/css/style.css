@@ -9,6 +9,82 @@
 
 }
 
+@keyframes move {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+      transform: scale(1) ;
+    }
+  50% {
+      transform: scale(0.75) ;
+    }
+}
+
+
+
+@-webkit-keyframes pulse {
+  
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(215, 17, 73, .85);
+    box-shadow: 0 0 0 0 rgba(215, 17, 73, .85);
+  }
+  
+  70% {
+    -webkit-box-shadow: 0 0 0 2em rgba(215, 17, 73, 0);
+    box-shadow: 0 0 0 2em rgba(215, 17, 73, 0);
+  }
+  
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(215, 17, 73, 0);
+    box-shadow: 0 0 0 0 rgba(215, 17, 73, 0);
+  }
+  
+}
+
+@keyframes changeLetter {
+  0% {
+    color: var(--bgColor);
+  }
+  50% {
+    color: var(--bgColor);
+    color: white;
+  }
+
+  100% {
+    color: #01DF01; 
+    font-size: 1.2rem;
+    content: "¡LIVE NOW!";
+
+  }
+}
+
+
+
+@keyframes colorFondo {
+  0% {
+     background-color:  #efe8ee; 
+  }
+  50% {
+    background-color:  #efe8ee; 
+  }
+  100% {
+    background-color:  #01DF01; 
+
+  }
+}
+
+
+
 body{
     background-color: var(--bgColor);
 }
@@ -24,10 +100,73 @@ div {
     margin: 35px auto 20px;
     border: 1px;
     border-radius: 30%;
-    border-style: dotted;
+    border-style: none;
     border-color: var(--accentColor)
 }
 
+
+
+.textName{
+
+    transform: translateY(5%);
+    animation: head 2s infinite;
+    margin: 0;
+    
+    
+
+}
+
+.chaturbate::before{
+
+  animation: changeLetter 1.3s  infinite alternate;
+    content: "Chaturbate";
+  
+}
+
+.stripchat::before{
+
+  animation: changeLetter 1.3s  infinite alternate;
+    content: "Stripchat";
+  
+}
+
+
+#online{
+    padding-top:  10px;
+    color: #27b503;
+    font-size: .8rem;
+    /*font-weight: 600;*/
+    line-height: 1.25;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration:none;
+    position: relative;
+    
+
+
+}
+
+.only{  
+ animation: 3s ease-in-out infinite heartBeat;
+}
+
+.ico{
+    color: #00ff08;
+    position: absolute;
+    top: 60%;
+    left: 80px;
+    transform: translateY(-40%);
+    height: 100%;
+    width: 100%;
+    max-height: 46px;
+    max-width: 46px;
+    z-index: 5;
+
+
+}
 #userName{
     color: var(--accentColor);
     font-size: 1rem;
@@ -52,7 +191,9 @@ div {
     margin-bottom: 16px;
     padding: 0;
     position: relative;
+    
 }
+
 
 .link  a{
     display: block;
@@ -61,13 +202,13 @@ div {
     font-family: var(--font);
     text-align: center;
     margin-bottom: 20px;
-    padding: 17px;
+    padding: 12px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.3rem;
     transition: all .25s cubic-bezier(.08,.59,.29,.99);
     border-color: var(--complementColor);
     border: 1px;
-    border-style: dotted;
+    border-style: solid;
     border-radius: 30px;
 }
 
@@ -79,7 +220,7 @@ div {
 .link .icon-wrap {
     position: absolute;
     top: 50%;
-    left: 4px;
+    left: 8px;
     transform: translateY(-50%);
     height: 100%;
     width: 100%;
@@ -89,6 +230,13 @@ div {
     overflow: hidden;
     pointer-events: none;
     border-radius: 30px;
+    background-color: #efe8ee;
+
+  
+}
+
+.active{
+ animation: colorFondo 1.3s  infinite alternate;
 }
 
 .icon-wrap--thumbnail img {

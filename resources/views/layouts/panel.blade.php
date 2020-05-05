@@ -7,8 +7,11 @@
   <title>@littlecory3</title>
   <link rel="stylesheet" href="{{asset('css/anime.css')}}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
+  {{-- iconos --}}
+  <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon"/>
+  <link href="{{ asset('dist/css/style.min.css')}}" rel="stylesheet">
+  
   <style>
     
     div#pop-up {
@@ -16,9 +19,6 @@
      position: absolute;
      width: 100%;
      max-width: 65%;
-
-    
-
    }
 
    #imgUP{
@@ -65,8 +65,9 @@
 
 
 <div class="user-profile__social__links">
-
-  <a href="https://twitter.com/littlecory3" target="_blank" rel="noopener" class="user-profile__social__links__item">
+@foreach($footers as $footer)
+  @if($footer->name == "Twitter" and $footer->status == "on")
+  <a href="{{$footer->link}}" target="_blank" rel="noopener" class="user-profile__social__links__item">
     <svg class="user-profile__social-icon" viewBox="0 0 30 30">
       <path d="M12.254,22c-2.574,0-4.745-1.172-4.745-1.908c0-0.276,0.251-0.521,0.528-0.521c1.023,0,2.003-0.25,2.882-0.73
       c-0.951-0.444-2.103-1.336-2.906-2.625c-0.918-1.471-1.68-3.937-0.1-7.326c0.073-0.156,0.221-0.265,0.392-0.285
@@ -83,7 +84,8 @@
   </svg>
 </a>
 
-<a href="https://instagram.com/littlecory3" target="_blank" rel="noopener" class="user-profile__social__links__item">
+@elseif($footer->name == "Instagram" and $footer->status == "on")
+<a href="{{$footer->link}}" target="_blank" rel="noopener" class="user-profile__social__links__item">
 
   <svg class="user-profile__social-icon" viewBox="0 0 30 30">
     <path d="M15,11c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S17.206,11,15,11z M15,18c-1.654,0-3-1.346-3-3s1.346-3,3-3
@@ -96,7 +98,8 @@
 </svg>
 </a>
 
-<a href="https://tiktok.com/@littlecory3" target="_blank" rel="noopener" class="user-profile__social__links__item">
+@elseif($footer->name == "Tik Tok" and $footer->status == "on")
+<a href="{{$footer->link}}" target="_blank" rel="noopener" class="user-profile__social__links__item">
   <svg class="user-profile__social-icon" viewBox="0 0 30 30">
     <path d="M12.6 24C9.5 24 7 21.5 7 18.5S9.5 13 12.5 13h.4c.3 0 .5.2.5.5v2.7c0 .1-.1.3-.2.4s-.3.1-.4.1h-.3c-1 0-1.8.8-1.8 1.8s.8 1.8 1.8 1.8 1.8-.8 1.8-1.8v-11c0-.3.2-.5.5-.5h2.7c.3 0 .5.2.5.5 0 1.8 1.5 3.3 3.3 3.3.3 0 .5.2.5.5V14c0 .3-.2.5-.5.5-1.2 0-2.3-.3-3.3-.8v4.7c.1 3.1-2.4 5.6-5.4 5.6zm-.2-10.1C10 14 8 16 8 18.5 8 21 10 23 12.5 23s4.5-2 4.5-4.5v-5.6c0-.2.1-.4.3-.4.2-.1.4-.1.5 0 .9.7 2 1 3.1 1.1v-1.7c-2-.2-3.6-1.8-3.8-3.8h-1.8v10.5c0 1.6-1.3 2.8-2.8 2.8-1.6 0-2.8-1.3-2.8-2.8 0-1.5 1.2-2.7 2.7-2.8v-1.9z">
 
@@ -104,7 +107,8 @@
   </svg>
 </a>
 
-<a href="https://www.amazon.com/hz/wishlist/dl/invite/e43nriJ?ref_=wl_share" target="_blank" rel="noopener" class="user-profile__social__links__item">
+@elseif($footer->name == "Amazon" and $footer->status == "on")
+<a href="{{$footer->link}}" target="_blank" rel="noopener" class="user-profile__social__links__item">
   <svg class="user-profile__social-icon" viewBox="0 0 32 30">
     <path d="M14.4 20h-.8c-.9-.1-1.8-.5-2.4-1.2-.6-.7-.9-1.6-.8-2.5 0-1.1.4-2.1 1.2-2.9 1.5-1.4 3.9-1.7 5-1.7 0-.4 0-.9-.3-1.2-.1-.1-.3-.2-.6-.2-.6 0-1.2.4-1.3 1-.1.4-.5.7-.9.6l-2-.3h-.1c-.4-.1-.7-.5-.6-1C11 9.8 11.9 7 16 7c1.6 0 2.8.4 3.6 1.3 1.1 1.2 1 2.8 1 2.9v4.4c.1.5.3 1.1.7 1.5.3.4.2.8-.1 1.1l-1.7 1.4c-.3.2-.7.2-1 0-.4-.3-.7-.6-1-1-.9.9-2 1.4-3.1 1.4zm-.4-1.1c1.2.1 2.4-.4 3.1-1.3.1-.1.3-.2.4-.2.2 0 .3.1.4.2.3.4.6.8 1 1.2l1.4-1.2c-.4-.6-.7-1.3-.8-2v-4.5c0-.1.1-1.3-.7-2.1-.6-.6-1.6-1-2.8-1-3.1 0-3.9 1.7-4.2 2.6l1.7.2c.3-.9 1.2-1.6 2.2-1.6.6 0 1 .2 1.4.5.6.6.6 1.6.6 2.1v.2c0 .1-.1.3-.2.4-.1.1-.3.1-.4.1 0 0-3.2-.1-4.8 1.4-.6.6-.9 1.3-.9 2.2-.1 1.4.9 2.6 2.3 2.7.1.1.2.1.3.1zm-2.2-8.1zm3.4 7.1c-.2 0-.7 0-1.1-.4-.4-.4-.6-.9-.6-1.6 0 0-.1-.9.6-1.6.6-.7 1.6-1 3-1 .3 0 .5.2.5.5v.9c0 1.1-.5 3.2-2.4 3.2.1 0 0 0 0 0zm1.4-3.6c-.8.1-1.4.3-1.8.7-.4.4-.3.9-.3.9 0 .3 0 .7.3.9.2.2.5.2.5.2 1.4 0 1.4-2.2 1.4-2.2v-.5zM15.7 24c-.4 0-.8 0-1.3-.1-3-.4-5.9-1.5-8.3-3.4-.1-.1-.2-.5 0-.7.2-.2.5-.3.7-.1 2.2 1.8 4.9 2.9 7.7 3.2 3 .3 6-.5 8.6-2.1.2-.1.5-.1.7.2.1.2.1.5-.2.7-2.3 1.5-5.1 2.3-7.9 2.3z">
 
@@ -115,7 +119,8 @@
   </svg>
 </a>
 
-<a href="mailto:littlecory99@gmail.com" target="_blank" rel="noopener" class="user-profile__social__links__item">
+@elseif($footer->name == "Email" and $footer->status == "on")
+<a href="mailto:{{$footer->link}}" target="_blank" rel="noopener" class="user-profile__social__links__item">
   <svg class="user-profile__social-icon" viewBox="0 0 30 30">
     <path d="M22.485,20.074C22.489,20.049,22.5,20.026,22.5,20V10c0-0.024-0.01-0.044-0.013-0.066c-0.005-0.034-0.009-0.067-0.02-0.1
     c-0.012-0.033-0.03-0.061-0.048-0.091c-0.012-0.019-0.017-0.041-0.031-0.06c-0.005-0.007-0.013-0.009-0.019-0.015
@@ -136,11 +141,14 @@
   </path>
 </svg>
 </a>
-
+@endif
+@endforeach
 </div>
 
 <!-- Javascript -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+
 
 {{-- Animacion --}}
 <script >
@@ -237,8 +245,6 @@
 
  });
 </script>
-
-
 
 
 </body>

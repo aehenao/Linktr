@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Link extends Model
+class Footer extends Model
 {
     protected $fillable = [
-        'name', 'link', 'ico', 'preview', 'status', 'online'
+        'name', 'link', 'status'
     ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Link;
+use App\Footer;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,18 @@ class HomeController extends Controller
     public function index()
     {
         $links = Link::all();
-        return view('welcome', compact('links'));
+        $footers = Footer::all();
+        $exists = $links->where('online', 'on') ;
+
+        if(count($exists) >= 1 ){
+            $exists = true;
+        }
+        else{
+            $exists = false;
+        }
+
+        //dd($exists);
+
+        return view('welcome', compact('links', 'footers', 'exists'));
     }
 }
