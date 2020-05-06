@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Link;
+use App\User;
+
 
 class LinkController extends Controller
 {
@@ -22,8 +24,9 @@ class LinkController extends Controller
 
  public function index()
  {
+   $data = User::findOrFail(1);
    $links = Link::all();
-   return view('admin.link.index', compact('links'));
+   return view('admin.link.index', compact('links','data'));
  }
 
  public function create()

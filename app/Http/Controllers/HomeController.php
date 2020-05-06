@@ -31,6 +31,7 @@ class HomeController extends Controller
         $user = User::findOrFail(1);
         $exists = $links->where('online', 'on') ;
 
+
         if(count($exists) >= 1 ){
             $exists = true;
         }
@@ -40,6 +41,6 @@ class HomeController extends Controller
 
         //dd($exists);
 
-        return view('welcome', compact('links', 'footers', 'exists', 'user'));
+        return view('welcome', compact('links', 'footers', 'exists', 'user', ));
     }
 }
