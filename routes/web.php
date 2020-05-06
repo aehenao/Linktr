@@ -13,14 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
 
+
+
+
+Auth::routes();
+
+Route::middleware('auth')->group(function() {
+	
 Route::get('/inicio', function(){
 	return view('admin.index');
-});
+})->name('home');
 
-
-// Auth::routes();
+Route::get('/profile', 'ProfileController@index');
+Route::put('/profile/{id}', 'ProfileController@update');
 
 Route::get('/links', 'LinkController@index');
 Route::get('/links/new', 'LinkController@create');
@@ -32,7 +39,5 @@ Route::delete('/links/{link}', 'LinkController@destroy');
 Route::get('/footers', 'FooterController@index');
 Route::get('/footers/{id}/edit', 'FooterController@edit');
 Route::put('/footers/{id}', 'FooterController@update');
+});
 
-
-
-//Route::get('/home', 'HomeController@index')->name('home');

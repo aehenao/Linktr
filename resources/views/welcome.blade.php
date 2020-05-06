@@ -2,11 +2,13 @@
 
 @section('content')
 
-    <img id="userPhoto" src="{{asset('images/profile.jpg')}}" alt="User Photo">
+    <img id="userPhoto" src="@if(isset($user->img)) {{asset($user->img)}} @else 
+      {{asset('assets/images/users/1.jpg')}} @endif" alt="User Photo">
     
     
     <a href="#" id="userName">
-        @littlecory3
+       @if(isset($user->user)) <span>@</span>{{$user->user}} @else @usuario 
+       @endif
     </a>
 
     @if($exists)
