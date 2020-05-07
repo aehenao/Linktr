@@ -4,7 +4,7 @@
 
 	@if($link->status == 'on')
 	<div class="link">
-		<a class="openpop " href="{{$link->link}}" target="_blank" data-link-id="" data-thumbnail="{{asset($link->preview)}}">
+		<a class="openpop " href="/url/{{$link->id}}" target="_blank" data-link-id="" data-thumbnail="{{asset($link->preview)}}">
 
 			<div class="icon-wrap icon-wrap--thumbnail @if($link->online == 'on') active @endif">
 

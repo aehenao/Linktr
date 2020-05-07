@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Link;
 use App\Footer;
 use App\User;
-use Tracker;
+
 
 class HomeController extends Controller
 {
@@ -32,10 +32,7 @@ class HomeController extends Controller
         $user = User::findOrFail(1);
         $exists = $links->where('online', 'on') ;
 
-        $visitor = Tracker::currentSession();
-        $users = Tracker::users(60 * 24);
 
-        $users = Tracker::userDevices(60 * 24, $user->id);
        
         if(count($exists) >= 1 ){
             $exists = true;
@@ -46,6 +43,6 @@ class HomeController extends Controller
 
         //dd($exists);
 
-        return view('welcome', compact('links', 'footers', 'exists', 'user', 'visitor'));
+        return view('welcome', compact('links', 'footers', 'exists', 'user'));
     }
 }

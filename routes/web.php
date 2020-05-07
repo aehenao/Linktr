@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/url/{id}', 'UrlController@enlace');
+Route::get('/footer/{id}', 'UrlController@footer');
 
 
 
