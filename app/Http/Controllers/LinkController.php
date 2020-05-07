@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Link;
 use App\User;
-
+use Tracker;
 
 class LinkController extends Controller
 {
@@ -26,6 +26,8 @@ class LinkController extends Controller
  {
    $data = User::findOrFail(1);
    $links = Link::all();
+
+
    return view('admin.link.index', compact('links','data'));
  }
 

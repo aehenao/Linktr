@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +22,8 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
-	
-Route::get('/inicio', function(){
-	return view('admin.index');
-})->name('home');
+
+Route::get('/inicio','DashboardController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index');
 Route::put('/profile/{id}', 'ProfileController@update');
