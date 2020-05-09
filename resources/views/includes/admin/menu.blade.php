@@ -19,7 +19,7 @@
                             </ul>
                         </li> --}}
 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('logout')}}" aria-expanded="false"><i class="mdi mdi-exit-to-app"></i><span class="hide-menu">Cerrar Sesíon</span></a></li>
+                  {{--       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('logout')}}" aria-expanded="false"><i class="mdi mdi-exit-to-app"></i><span class="hide-menu">Cerrar Sesíon</span></a></li> --}}
 
                         
                     </ul>

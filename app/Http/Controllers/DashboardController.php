@@ -24,9 +24,9 @@ class DashboardController extends Controller
 		//Metricas
 		$vSocial = $this->visitSocial();
 		$vCountry = $this->visitCountry();
-		$vPage = $this->visitsPage();
+		//$vPage = $this->visitsPage();
 		
-		return view('admin.index', compact('data', 'visits', 'vSocial', 'clics', 'vCountry', 'visitsTotal', 'vPage', 'visitsMonth'));
+		return view('admin.index', compact('data', 'visits', 'vSocial', 'clics', 'vCountry', 'visitsTotal', 'visitsMonth'));
 	}
 
 	private function visitSocial(){
