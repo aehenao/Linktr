@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+
 Route::get('/register', function(){
 	return redirect('/');
 });
@@ -29,7 +29,7 @@ Route::get('/footer/{id}', 'UrlController@footer');
 Auth::routes(['register' => false]);
 
 Route::middleware('auth')->group(function() {
-
+Route::get('/home', 'DashboardController@index');
 Route::get('/inicio','DashboardController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index');

@@ -19,13 +19,14 @@ class DashboardController extends Controller
 		$visits = Visits::paginate(20);
 		$clics = Clics::all();
 		$visitsTotal = Visits::all();
+		$visitsMonth = $this->visitsSocialMonth();
 
 		//Metricas
 		$vSocial = $this->visitSocial();
 		$vCountry = $this->visitCountry();
 		$vPage = $this->visitsPage();
 		
-		return view('admin.index', compact('data', 'visits', 'vSocial', 'clics', 'vCountry', 'visitsTotal', 'vPage'));
+		return view('admin.index', compact('data', 'visits', 'vSocial', 'clics', 'vCountry', 'visitsTotal', 'vPage', 'visitsMonth'));
 	}
 
 	private function visitSocial(){
@@ -52,6 +53,15 @@ class DashboardController extends Controller
 		->groupBy('ip')->orderBy('cant' , 'DESC')->get();
 		
 		return $country;
+		
+	}
+
+	private function visitsSocialMonth(){
+		$mes = date("m");
+		$redSocial = Clics::select('name', DB::raw('count(*) as cant'))
+		->groupBy('name')->orderBy('cant' , 'DESC')->whereMonth('created_at', $mes)->take(10)->get();
+		
+		return $redSocial;
 		
 	}
 }

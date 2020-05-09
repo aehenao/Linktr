@@ -1,5 +1,16 @@
 @extends('layouts.admin')
 
+@section('styles')
+<style type="text/css">
+	
+	.mes{
+
+	}
+
+</style>
+@endsection
+
+
 @section('content')
 
 <div class="container-fluid">
@@ -29,6 +40,12 @@
 
 				</div>
 			</div>
+
+			<div class="bg-dark p-10 text-white text-center">
+				<i class="fa fa-user m-b-5 font-16"></i>
+				<h5 class="m-b-0 m-t-5">{{count($visitsTotal)}}</h5>
+				<small class="font-light">Total de Visitas</small>
+			</div>
 		</div>
 
 		<div class="col-lg-6">
@@ -54,23 +71,38 @@
 
 				</div>
 			</div>
-		</div>
 
-		
+			<!-- card -->
+			@if(count($visitsMonth) >= 1)
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title m-b-0" >Clics Enlaces <small style="color: green"><b>{{date("F")}}</b></small></h4>
+					@foreach($visitsMonth as $social)
+					<div class="m-t-20">
+						<div class="d-flex no-block align-items-center">
+							<span>{{bcdiv(($social->cant * 100 )/count($clics),1,1)}}%  <b>{{$social->name}}</b></span>
+							<div class="ml-auto">
+								<span>{{$social->cant}}</span>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped" role="progressbar" style="width:
+							{{ ($social->cant * 100 )/count($clics) }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					@endforeach
+
+				</div>
+			</div>
+			@endif
+
+			
+		</div>
 
 	</div>
-	<!-- column -->
-	<div class="col-6">
-			<div class="bg-dark p-10 text-white text-center">
-				<i class="fa fa-user m-b-5 font-16"></i>
-				<h5 class="m-b-0 m-t-5">{{count($visitsTotal)}}</h5>
-				<small class="font-light">Total de Visitas</small>
-			</div>
-		</div>
+
 
 	<div class="row">
-
-		
 
 		<div class="col-12">
 		<div class="card">
