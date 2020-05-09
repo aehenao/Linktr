@@ -64,9 +64,10 @@ class UrlController extends Controller
 						
 
 				}elseif($visit->ip != $arr_ip->ip){
-
-					$exists = $modelVisits->first(function($modelVisits) use($arr_ip->ip) { 
-						return $modelVisits->ip === $arr_ip->ip;
+					
+					$ip = $arr_ip->ip;
+					$exists = $modelVisits->first(function($modelVisits) use($ip) { 
+						return $modelVisits->ip === $ip;
 					}) !== null;
 
 					if($exists){
