@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         	'name' => 'littlecory3',
         	'email' => 'littlecory99@gmail.com',
         	'user' => 'littlecory3',
-        	'password' => bcrypt('12345678')
+        	'password' => Hash::make('12345678')
         ]);
     }
 }
