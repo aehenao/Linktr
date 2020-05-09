@@ -48,7 +48,7 @@
 
 						</div>
 						<div class="el-card-content">
-							<h4 class="m-b-0">{{$data->user}}</h4>
+							<h4 class="m-b-0">{{$data->name}}</h4>
 						</div>
 					</div>
 
@@ -71,12 +71,12 @@
 							</div>
 						</div>
 
-						<div class="form-group row">
+						{{-- <div class="form-group row">
 							<label for="user" class="col-sm-3 text-right control-label col-form-label">Usuario</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="user" name="user" value="{{old('user',$data->user)}}">
 							</div>
-						</div>
+						</div> --}}
 
 						<div class="form-group row">
 							<label for="img" class="col-sm-3 text-right control-label col-form-label">Foto</label>

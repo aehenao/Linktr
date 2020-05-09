@@ -22,7 +22,7 @@
         <div class="auth-box bg-dark border-top border-secondary">
             <div id="loginform">
                 <div class="text-center p-t-20 p-b-20">
-                    <span class="db"><img src="../../assets/images/logo.png" alt="logo" /></span>
+                    <span class="db"><img src="{{asset('assets/images/logo.png')}}" alt="logo" /></span>
                 </div>
                 <!-- Form -->
                 <form method="POST" action="{{ route('login') }}">
@@ -35,9 +35,9 @@
                                     <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                 </div>
 
-                                <input type="text" class="form-control form-control-lg @error('user') is-invalid @enderror" placeholder="User" aria-label="Username" name="user" aria-describedby="basic-addon1" value="{{ old('user') }}" required autocomplete="user" autofocus>
+                                <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" aria-label="Username" name="email" aria-describedby="basic-addon1" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('user')
+                                @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

@@ -22,7 +22,7 @@ class ProfileController extends Controller
 
 		$data = array(
 			'name' => $request->name,
-			'user' => $request->user,
+			// 'user' => $request->user,
 			'email' => $request->email,
 
 		);
