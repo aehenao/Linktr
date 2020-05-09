@@ -64,7 +64,7 @@ class UrlController extends Controller
 						
 
 				}elseif($visit->ip != $arr_ip->ip){
-					dd('Error en comparacion de ips');
+					dd('Error en comparacion de ips' . $visit->ip . ' ip por funcion: '. $arr_ip->ip);
 					$visita = Visits::create($data);
 					$this->registerClics($visita, $link);
 
