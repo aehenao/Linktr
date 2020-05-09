@@ -61,7 +61,7 @@ class UrlController extends Controller
 					//dd('No funciona por fecha');
 					$visita = Visits::create($data);
 					$this->registerClics($visita, $link);
-						
+					
 
 				}elseif($visit->ip != $arr_ip->ip){
 					
@@ -74,7 +74,7 @@ class UrlController extends Controller
 
 					}else{
 						$visita = Visits::create($data);
-					    $this->registerClics($visita, $link);
+						$this->registerClics($visita, $link);
 					}
 					// dd('Error en comparacion de ips' . $visit->ip . ' ip por funcion: '. $arr_ip->ip);
 					

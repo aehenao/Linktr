@@ -105,7 +105,7 @@
 	<div class="row">
 
 		<div class="col-12">
-		<div class="card">
+		<div class="card table-responsive">
 			<div class="card-body">
 				<h5 class="card-title m-b-0">Referido</h5>
 			</div>
