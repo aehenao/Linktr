@@ -40,14 +40,14 @@
 					@foreach($vCountry as $country)
 					<div class="m-t-20">
 						<div class="d-flex no-block align-items-center">
-							<span>{{bcdiv(($country->cant * 100 )/count($visits),1,1)}}%  <b>{{$country->country}}</b></span>
+							<span>{{bcdiv(($country->cant * 100 )/count($visitsTotal),1,1)}}%  <b>{{$country->country}}</b></span>
 							<div class="ml-auto">
 								<span>{{$country->cant}}</span>
 							</div>
 						</div>
 						<div class="progress">
 							<div class="progress-bar progress-bar-striped" role="progressbar" style="width:
-							{{ ($country->cant * 100 )/count($visits) }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							{{ ($country->cant * 100 )/count($visitsTotal) }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 					</div>
 					@endforeach
@@ -63,7 +63,7 @@
 	<div class="col-6">
 			<div class="bg-dark p-10 text-white text-center">
 				<i class="fa fa-user m-b-5 font-16"></i>
-				<h5 class="m-b-0 m-t-5">{{count($visits)}}</h5>
+				<h5 class="m-b-0 m-t-5">{{count($visitsTotal)}}</h5>
 				<small class="font-light">Total de Visitas</small>
 			</div>
 		</div>

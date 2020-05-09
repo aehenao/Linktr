@@ -18,13 +18,14 @@ class DashboardController extends Controller
 		$data = User::findOrFail(1);
 		$visits = Visits::paginate(20);
 		$clics = Clics::all();
+		$visitsTotal = Visits::all();
 
 		//Metricas
 		$vSocial = $this->visitSocial();
 		$vCountry = $this->visitCountry();
+		$vPage = $this->visitsPage();
 		
-		
-		return view('admin.index', compact('data', 'visits', 'vSocial', 'clics', 'vCountry'));
+		return view('admin.index', compact('data', 'visits', 'vSocial', 'clics', 'vCountry', 'visitsTotal', 'vPage'));
 	}
 
 	private function visitSocial(){
@@ -40,6 +41,15 @@ class DashboardController extends Controller
 
 		$country = Visits::select('country', DB::raw('count(*) as cant'))
 		->groupBy('country')->orderBy('cant' , 'DESC')->take(10)->get();
+		
+		return $country;
+		
+	}
+
+	private function visitsPage(){
+
+		$country = Visits::select('ip', DB::raw('count(*) as cant'))
+		->groupBy('ip')->orderBy('cant' , 'DESC'))->get();
 		
 		return $country;
 		
