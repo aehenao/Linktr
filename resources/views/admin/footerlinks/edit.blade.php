@@ -41,7 +41,7 @@
 						<div class="form-group row">
 							<label for="link" class="col-sm-3 text-right control-label col-form-label">Enlace</label>
 							<div class="col-sm-9">
-								<input type="url" class="form-control" name="link" value="{{old('link', $data->link)}}" required>
+								<input type="text" class="form-control" name="link" value="{{old('link', $data->link)}}" required>
 							</div>
 						</div>
 
