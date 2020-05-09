@@ -49,7 +49,7 @@ class DashboardController extends Controller
 	private function visitsPage(){
 
 		$country = Visits::select('ip', DB::raw('count(*) as cant'))
-		->groupBy('ip')->orderBy('cant' , 'DESC'))->get();
+		->groupBy('ip')->orderBy('cant' , 'DESC')->get();
 		
 		return $country;
 		
