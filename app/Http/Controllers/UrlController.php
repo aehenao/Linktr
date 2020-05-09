@@ -58,14 +58,16 @@ class UrlController extends Controller
 				$fecha_registro = date("d-m-Y", strtotime($visit->created_at));
 
 				if($fecha_actual > $fecha_registro and $visit->ip == $arr_ip->ip){
-
-					$visita = Visits::create($data);
-					$this->registerClics($visita, $link);	
-
-				}elseif($visit->ip != $arr_ip->ip){
-
+					dd('No funciona por fecha');
 					$visita = Visits::create($data);
 					$this->registerClics($visita, $link);
+						
+
+				}elseif($visit->ip != $arr_ip->ip){
+					dd('Error en comparacion de ips');
+					$visita = Visits::create($data);
+					$this->registerClics($visita, $link);
+
 
 				}elseif($fecha_actual == $fecha_registro and 
 					$visit->ip == $arr_ip->ip)
@@ -81,6 +83,7 @@ class UrlController extends Controller
 							//dd('Misma IP dando clic en otro link');
 
 					}else{
+						dd('Error al validar si le esta dando clic al mismo enlace');
 						$this->registerClics($visit, $link);
 
 					}
