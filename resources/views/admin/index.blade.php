@@ -11,36 +11,68 @@
 			<!-- card -->
 			<div class="card">
 				<div class="card-body">
-					<h4 class="card-title m-b-0">Pais</h4>
-
+					<h4 class="card-title m-b-0">Clics Enlaces</h4>
+					@foreach($vSocial as $social)
 					<div class="m-t-20">
 						<div class="d-flex no-block align-items-center">
-							<span>81% Clicks</span>
+							<span>{{bcdiv(($social->cant * 100 )/count($clics),1,1)}}%  <b>{{$social->name}}</b></span>
 							<div class="ml-auto">
-								<span>125</span>
+								<span>{{$social->cant}}</span>
 							</div>
 						</div>
 						<div class="progress">
-							<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 81%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+							<div class="progress-bar progress-bar-striped" role="progressbar" style="width:
+							{{ ($social->cant * 100 )/count($clics) }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 					</div>
+					@endforeach
 
 				</div>
 			</div>
 		</div>
 
-		<div class="col-6">
+		<div class="col-lg-6">
+			
+			<!-- card -->
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title m-b-0">Estadistica x Paises</h4>
+					@foreach($vCountry as $country)
+					<div class="m-t-20">
+						<div class="d-flex no-block align-items-center">
+							<span>{{bcdiv(($country->cant * 100 )/count($visits),1,1)}}%  <b>{{$country->country}}</b></span>
+							<div class="ml-auto">
+								<span>{{$country->cant}}</span>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped" role="progressbar" style="width:
+							{{ ($country->cant * 100 )/count($visits) }}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+					@endforeach
+
+				</div>
+			</div>
+		</div>
+
+		
+
+	</div>
+	<!-- column -->
+	<div class="col-6">
 			<div class="bg-dark p-10 text-white text-center">
 				<i class="fa fa-user m-b-5 font-16"></i>
-				<h5 class="m-b-0 m-t-5">2540</h5>
+				<h5 class="m-b-0 m-t-5">{{count($visits)}}</h5>
 				<small class="font-light">Total de Visitas</small>
 			</div>
 		</div>
 
-	</div>
-	<!-- column -->
+	<div class="row">
 
-	<div class="col-12">
+		
+
+		<div class="col-12">
 		<div class="card">
 			<div class="card-body">
 				<h5 class="card-title m-b-0">Referido</h5>
@@ -48,20 +80,34 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th scope="col">URL</th>
-						<th scope="col">Host</th>
+						<th scope="col">Referido por</th>
+						<th scope="col">IP del Visitante</th>
+						<th scope="col">Continente <small>(visitante)</small></th>
+						<th scope="col">Ciudad <small>(visitante)</small></th>
 					</tr>
 				</thead>
 				<tbody>
+					@foreach($visits as $visit)
 					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
+						<th>{{$visit->refer}}</th>
+						<td>{{$visit->ip}}</td>
+						<td>{{$visit->country}}</td>
+						<td>{{$visit->city}}</td>
 						
 					</tr>
+					@endforeach
 					
 				</tbody>
 			</table>
+			<div class="card-body">
+				{{ $visits->links() }}
+			</div>
 		</div>
+
+
+	</div>
+
+	
 
 	</div>
 

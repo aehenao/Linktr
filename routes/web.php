@@ -15,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/register', function(){
+	return redirect('/');
+});
+
 Route::get('/url/{id}', 'UrlController@enlace');
 Route::get('/footer/{id}', 'UrlController@footer');
 
 
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware('auth')->group(function() {
 

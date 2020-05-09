@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Clics;
 
-class Footer extends Model
+class Visits extends Model
 {
-    protected $fillable = [
-        'name', 'link', 'status'
+	protected $fillable = [
+        'ip', 'refer', 'link_name', 'country', 'city',
     ];
 
     public function clics()
