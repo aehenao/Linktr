@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/register', function(){
 	return redirect('/');
 });
-
+Route::get('/inicio','DashboardController@index')->name('home');
 Route::get('/url/{id}', 'UrlController@enlace');
 Route::get('/footer/{id}', 'UrlController@footer');
 
@@ -30,7 +30,7 @@ Auth::routes(['register' => false]);
 
 Route::middleware('auth')->group(function() {
 
-Route::get('/inicio','DashboardController@index')->name('home');
+
 
 Route::get('/profile', 'ProfileController@index');
 Route::put('/profile/{id}', 'ProfileController@update');
