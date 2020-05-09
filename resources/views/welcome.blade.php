@@ -7,7 +7,7 @@
     
     
     <a href="#" id="userName">
-       @if(isset($user->user)) <span>@</span>{{$user->user}} @else @usuario 
+       @if(isset($user->name)) <span>@</span>{{$user->name}} @else @usuario 
        @endif
     </a>
 
