@@ -50,6 +50,11 @@ class UrlController extends Controller
 			'city' => $arr_ip->city
 		);
 
+		$ip =  $arr_ip->ip;
+		$exists = $modelVisits->first(function($modelVisits) use($ip) { 
+			return $modelVisits->ip === $ip;
+		}) !== null;
+
 		if(count($modelVisits) >= 1){
 
 
@@ -57,37 +62,16 @@ class UrlController extends Controller
 
 				$fecha_registro = date("d-m-Y", strtotime($visit->created_at));
 
-				if($fecha_actual > $fecha_registro and $visit->ip == $arr_ip->ip){
+				if($fecha_actual > $fecha_registro and $exists){
 					
 					$visita = Visits::create($data);
 					$this->registerClics($visita, $link);
 
 					\Log::info("fecha actual:{$fecha_actual} fecha de registro:{$fecha_registro}");
-				
+
 					
 
-				}elseif($visit->ip != $arr_ip->ip){
-					
-					$ip = $arr_ip->ip;
-					$exists = $modelVisits->first(function($modelVisits) use($ip) { 
-						return $modelVisits->ip === $ip;
-					}) !== null;
-
-					if($exists){
-
-					}else{
-						$visita = Visits::create($data);
-						$this->registerClics($visita, $link);
-
-						\Log::info("la ip {$visit->ip} no existe por lo cual la registro. Ip actual {$ip}");
-						
-					}
-					// dd('Error en comparacion de ips' . $visit->ip . ' ip por funcion: '. $arr_ip->ip);
-					
-
-
-				}elseif($fecha_actual == $fecha_registro and 
-					$visit->ip == $arr_ip->ip)
+				}elseif($fecha_actual == $fecha_registro and $exists)
 				{
 					$linkName = $link->name;
 					
@@ -102,16 +86,29 @@ class UrlController extends Controller
 					}else{
 						
 						$this->registerClics($visit, $link);
-						\Log::info('Error al validar si le esta dando clic al mismo enlace ip:' . $visit->ip);
+						\Log::info('Dio clic en otro enlace' . $visit->ip);
 						
 
 					}
 
 					
+				}else{
+
+					if($exists){
+
+					}else{
+						$visita = Visits::create($data);
+						$this->registerClics($visita, $link);
+
+						\Log::info("la ip {$ip} no existe por lo cual la registro.");
+						
+					}
+
 				}
 
 
 			}
+			
 		}else{
 
 			$visita = Visits::create($data);
@@ -128,10 +125,16 @@ class UrlController extends Controller
 	public function registerClics($visita, $link)
 	{
 		$clic = new Clics;
+		try{
 
-		$clic->visit()->associate($visita->id);
-		$clic->name = $link->name;
-		$clic->save();
+			$clic->visit()->associate($visita->id);
+			$clic->name = $link->name;
+			$clic->save();
+
+		}catch(\Exception $e){
+			\Log::error($e->getMessage());
+		}
+		
 	}
 
 }
