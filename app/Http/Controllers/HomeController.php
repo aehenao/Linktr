@@ -66,7 +66,7 @@ class HomeController extends Controller
 
 
         if($dateVisits == 0)
-            $getIP->registerVisits($data);
+            $getIP->registerVisits();
             
     }
 
