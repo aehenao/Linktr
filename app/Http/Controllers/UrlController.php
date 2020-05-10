@@ -78,7 +78,8 @@ class UrlController extends Controller
 					}else{
 						$visita = Visits::create($data);
 						$this->registerClics($visita, $link);
-						\Log::info('la ip no existe por lo cual la registro');
+
+						\Log::info("la ip {$visit->ip} no existe por lo cual la registro. Ip actual {$ip}");
 						
 					}
 					// dd('Error en comparacion de ips' . $visit->ip . ' ip por funcion: '. $arr_ip->ip);
@@ -101,7 +102,7 @@ class UrlController extends Controller
 					}else{
 						
 						$this->registerClics($visit, $link);
-						\Log::info('Error al validar si le esta dando clic al mismo enlace');
+						\Log::info('Error al validar si le esta dando clic al mismo enlace ip:' . $visit->ip);
 						
 
 					}
