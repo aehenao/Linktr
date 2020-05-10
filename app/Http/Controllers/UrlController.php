@@ -36,98 +36,53 @@ class UrlController extends Controller
 	private function addData($link){
 
 		$getIP = new GetIP();
-		$modelVisits = Visits::all();
-		$referrer = $getIP->ipRefer();
-		$arr_ip = geoip()->getLocation($getIP->getRealIP());
-		$fecha_actual = date("d-m-Y");
 		$clics = Clics::all();
 		
-		
-		$data = array(
-			'ip' => $arr_ip->ip,
-			'refer' => $referrer,
-			'country' => $arr_ip->country,
-			'city' => $arr_ip->city
-		);
-
+		$arr_ip = geoip()->getLocation($getIP->getRealIP());
+		$fecha_actual = date("d-m-Y");
 		$ip =  $arr_ip->ip;
-		$exists = $modelVisits->first(function($modelVisits) use($ip) { 
-			return $modelVisits->ip === $ip;
-		}) !== null;
+		$dateVisits = $getIP->getDateVisits($fecha_actual, $ip);
 
-		if(count($modelVisits) >= 1){
+		//dd($dateVisits);
 
+		if(count($dateVisits) == 0){
+			$visita = $getIP->registerVisits();
+			$this->registerClics($visita->id, $link);
+		}else{
+			foreach ($dateVisits as $visit) {
 
-			foreach($modelVisits as $visit){
-
-				$fecha_registro = date("d-m-Y", strtotime($visit->created_at));
-
-				if($fecha_actual > $fecha_registro and $exists){
-					
-					$visita = Visits::create($data);
-					$this->registerClics($visita, $link);
-
-					\Log::info("fecha actual:{$fecha_actual} fecha de registro:{$fecha_registro}");
-
-					
-
-				}elseif($fecha_actual == $fecha_registro and $exists)
-				{
 					$linkName = $link->name;
-					
+				
 					$exists = $clics->first(function($clics) use($linkName) { 
 						return $clics->name === $linkName;
 					}) !== null;
 					
 
 					if($exists){
-							//dd('Misma IP dando clic en otro link');
+							//dd('Misma IP dando clic en mismo link');
 
 					}else{
 						
-						$this->registerClics($visit, $link);
-						\Log::info('Dio clic en otro enlace' . $visit->ip);
+						$this->registerClics($visit['id'], $link);
+						\Log::info('Dio clic en otro enlace' . $visit['ip']);
 						
 
 					}
-
-					
-				}else{
-
-					if($exists){
-
-					}else{
-						$visita = Visits::create($data);
-						$this->registerClics($visita, $link);
-
-						\Log::info("la ip {$ip} no existe por lo cual la registro.");
-						
-					}
-
-				}
-
-
 			}
-			
-		}else{
-
-			$visita = Visits::create($data);
-
-			$this->registerClics($visita, $link);			
-
-			
 		}
+
+
 
 
 	}
 
 
-	public function registerClics($visita, $link)
+	public function registerClics($visitanteID, $link)
 	{
 		$clic = new Clics;
 		try{
 
-			$clic->visit()->associate($visita->id);
+			$clic->visit()->associate($visitanteID);
 			$clic->name = $link->name;
 			$clic->save();
 

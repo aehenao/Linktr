@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Link;
 use App\Footer;
 use App\User;
+use App\Clases\GetIP;
+use App\Visits;
 
 
 class HomeController extends Controller
@@ -32,7 +34,7 @@ class HomeController extends Controller
         $user = User::findOrFail(1);
         $exists = $links->where('online', 'on') ;
 
-
+        $this->registerRefer();
        
         if(count($exists) >= 1 ){
             $exists = true;
@@ -45,4 +47,28 @@ class HomeController extends Controller
 
         return view('welcome', compact('links', 'footers', 'exists', 'user'));
     }
+
+
+    public function registerRefer()
+    {
+        $getIP = new GetIP();
+        $modelVisits = Visits::all();
+        
+        $fecha_actual = date("d-m-Y");
+        $ip =  $arr_ip->ip;
+        $dateVisits = count($getIP->getDateVisits($fecha_actual, $ip));
+
+        
+       
+        //$existsIP =  $modelVisits->contains('ip', $ip);  //valido si existe la IP
+        //$existsRefer =  $modelVisits->contains('refer', $referrer);
+
+
+        if($dateVisits == 0)
+            $getIP->registerVisits($data);
+            
+    }
+
+    
+   
 }

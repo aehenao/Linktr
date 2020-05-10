@@ -116,6 +116,7 @@
 						<th scope="col">IP del Visitante</th>
 						<th scope="col">Continente <small>(visitante)</small></th>
 						<th scope="col">Ciudad <small>(visitante)</small></th>
+						<th scope="col">Fecha de Registro</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -125,6 +126,7 @@
 						<td>{{$visit->ip}}</td>
 						<td>{{$visit->country}}</td>
 						<td>{{$visit->city}}</td>
+						<td>{{$visit->created_at}}</td>
 						
 					</tr>
 					@endforeach
