@@ -64,7 +64,7 @@ class UrlController extends Controller
 					}else{
 						
 						$this->registerClics($visit['id'], $link);
-						\Log::info('Dio clic en otro enlace' . $visit['ip']);
+						//\Log::info('Dio clic en otro enlace' . $visit['ip']);
 						
 
 					}

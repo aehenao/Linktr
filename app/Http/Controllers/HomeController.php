@@ -53,6 +53,7 @@ class HomeController extends Controller
     {
         $getIP = new GetIP();
         $modelVisits = Visits::all();
+        $arr_ip = geoip()->getLocation($this->getRealIP());
         
         $fecha_actual = date("d-m-Y");
         $ip =  $arr_ip->ip;
