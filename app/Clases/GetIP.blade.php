@@ -6,6 +6,7 @@
 namespace App\Clases;
 
 use App\Visits;
+use App\Clics;
 
 class GetIP 
 {
@@ -52,10 +53,16 @@ class GetIP
         }
         
     }
+
     //Consulto si es la misma ip en el mismo dia
     public function getDateVisits($fechaActual, $ip)
     {
         return Visits::select('id','ip')->where('ip', $ip)->whereDay('created_at', $fechaActual)->get()->toArray();
+    }
+
+     public function getClicVisits($fechaActual, $idVisit)
+    {
+        return Clics::select('name','visit_id')->where('visit_id', $idVisit)->whereDay('created_at', $fechaActual)->get()->toArray();
     }
 
 

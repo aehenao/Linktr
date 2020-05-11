@@ -52,22 +52,27 @@ class UrlController extends Controller
 			foreach ($dateVisits as $visit) {
 
 					$linkName = $link->name;
-				
-					$exists = $clics->first(function($clics) use($linkName) { 
-						return $clics->name === $linkName;
-					}) !== null;
+					$clicsVisits = $getIP->getClicVisits($fecha_actual, $visit['id']);
+					$exists = false;
+
 					
+					//Valido si dio clic en el enlace
+					foreach ($clicsVisits as $value) {
+						$exists = strcmp($value['name'], $linkName) === 0;
+						if($exists)
+							break;
+					}
+
 					
 					if($exists){
-						\Log::info($visit['ip'] .' Dio clic en el mismo enlace ' .$linkName );
-						//dd($visit['ip'] .' Dio clic en el mismo enlace ' .$linkName );
+
+						\Log::info("La IP {$visit['ip']} dio clic en el mismo enlace {$linkName} el mismo dia.");
 
 					}else{
 						
 						$this->registerClics($visit['id'], $link);
 						\Log::info('Dio clic en otro enlace' . $visit['ip']);
 						
-
 					}
 			}
 		}
