@@ -82,7 +82,7 @@
 							<label for="img" class="col-sm-3 text-right control-label col-form-label">Foto</label>
 							<div class="col-sm-9">
 								<div class="custom-file">
-									<input type="file" id="img" class="custom-file-input" name="img" accept="image/png, .jpeg, .jpg, image/gif" required>
+									<input type="file" id="img" class="custom-file-input" name="img" accept="image/png, .jpeg, .jpg, image/gif" >
 
 									<label class="custom-file-label" for="img">Seleccione un archivo...</label>
 

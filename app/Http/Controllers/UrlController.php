@@ -57,14 +57,14 @@ class UrlController extends Controller
 						return $clics->name === $linkName;
 					}) !== null;
 					
-
+					dd($exists);
 					if($exists){
-							//dd('Misma IP dando clic en mismo link');
+						\Log::info('Dio clic en el mismo enlace' . $visit['ip']);
 
 					}else{
 						
 						$this->registerClics($visit['id'], $link);
-						//\Log::info('Dio clic en otro enlace' . $visit['ip']);
+						\Log::info('Dio clic en otro enlace' . $visit['ip']);
 						
 
 					}
