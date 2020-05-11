@@ -57,7 +57,7 @@ class UrlController extends Controller
 						return $clics->name === $linkName;
 					}) !== null;
 					
-					dd($exists);
+					
 					if($exists){
 						\Log::info('Dio clic en el mismo enlace' . $visit['ip']);
 
