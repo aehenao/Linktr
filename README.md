@@ -26,7 +26,7 @@ Simplemente deben clonar el repositorio y ejecutar las migraciones de la BD.
 
 Debido a que esto fue un proyecto para un cliente, lo hice muy ajustado a sus necesidades, pero si ustedes me ayudar a crear algo mas generico y personalizable desde la interfaz de administracion, pueden hacerlo y se los agradeceria.
 
-Si me desea aportar algo por mi contribuccion con el codigo fuente de mi aplicacion, aqui dejo el link para Donar 
+Si me desea aportar algo por mi contribuccion con el codigo fuente de mi aplicacion, aqui dejo el link para Donar https://paypal.me/aehenao?locale.x=es_XC
 
 ## Capturas de Pantalla
 
@@ -37,6 +37,6 @@ Si me desea aportar algo por mi contribuccion con el codigo fuente de mi aplicac
 ![Panel de Administracion 2](public/assets/pie_de_pagina.png)
 
 
-## License
+## License GNU GPLv3
 
-El codigo es libre para cualquier uso (incluye venta) o edicion,
+Los permisos de esta sólida licencia de copyleft están condicionados a poner a disposición el código fuente completo de obras con licencia y modificaciones, que incluyen obras más grandes que utilizan una obra con licencia, bajo la misma licencia. Los avisos de copyright y licencia deben conservarse. Los contribuyentes otorgan una concesión expresa de derechos de patente.
