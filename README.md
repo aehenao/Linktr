@@ -30,7 +30,8 @@ Si me desea aportar algo por mi contribuccion con el codigo fuente de mi aplicac
 
 ## Capturas de Pantalla
 
-
+[Vista principal]
+(https://github.com/aehenao/Linktr/public/assets/index.jpg)
 
 
 
