@@ -30,9 +30,11 @@ Si me desea aportar algo por mi contribuccion con el codigo fuente de mi aplicac
 
 ## Capturas de Pantalla
 
-[Vista principal]
-(https://github.com/aehenao/Linktr/public/assets/index.jpg)
-
+![Vista principal](public/assets/index.jpg)
+![Dashboard 1](public/assets/dasboard1.png)
+![Dashboard 2](public/assets/dashboard2.png)
+![Panel de Administracion 1](public/assets/Menu.png)
+![Panel de Administracion 2](public/assets/pie_de_pagina.png)
 
 
 ## License
