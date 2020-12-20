@@ -106,11 +106,14 @@
 
     <script>
         $(function(){
-            const error = @json($errors->all());
+            //const error = @json($errors->all());
 
             @if(Session::has('notification'))
-            
-            toastr.success('{{ session('notification') }}', 'Exito');
+                toastr.success('{{ session('notification') }}', 'Exito');
+            @elseif(Session::has('error'))
+                toastr.error('{{ session('error') }}', 'Error');
+            @elseif(Session::has('alerta'))
+                toastr.warning('{{ session('alerta') }}', 'Alerta');
             @endif
 
             // $('#ts-error').on('click', function() {

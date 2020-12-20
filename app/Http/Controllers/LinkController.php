@@ -43,14 +43,14 @@ class LinkController extends Controller
 
     	//Subo las imagenes a public/images
    $icoPath = Storage::disk('public')->put('images', $request->ico ); 
-   $previewPath = Storage::disk('public')->put(
-     'images', $request->preview );
+   /* $previewPath = Storage::disk('public')->put(
+     'images', $request->preview ); */
 
    $data = array(
     'name' => $request->name,
     'link' => $request->link,
     'ico' => $icoPath,
-    'preview' => $previewPath,
+    /* 'preview' => $previewPath, */
     'status' => $request->status,
     'online' => 'off'
 
@@ -108,12 +108,12 @@ public function update(Request $request, $id)
       Storage::disk('public')->delete($links->ico);
     }
 
-    if($request->preview){
+   /*  if($request->preview){
 
      $data['preview'] = Storage::disk('public')->put('images', $request->preview );
       //Elimino las imagenes asociadas al producto
      Storage::disk('public')->delete($links->preview);
-   }
+   } */
    
    $links->fill($data);
    $links->save();

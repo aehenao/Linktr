@@ -8,10 +8,14 @@ use App\Footer;
 use App\Clases\GetIP;
 use App\Visits;
 use App\Clics;
+use App\EnlacesDirectos;
 
 class UrlController extends Controller
 {
-
+	protected $enlaceDirecto;
+	public function __construct(EnlacesDirectos $enlaceDirecto){
+		$this->enlaceDirecto = $enlaceDirecto;
+	}
 
 	public function enlace($id)
 	{
@@ -27,13 +31,22 @@ class UrlController extends Controller
 		$link = Footer::findOrFail($id);
 		
 		$this->addData($link);
-		
-		
 
 		return redirect($link->link);
 	}
 
-	private function addData($link){
+	public function direct($id)
+	{
+		try{
+			$link = $this->enlaceDirecto->where('enlace', '=', $id)->first();
+			$this->addData($link, 1);
+			return view('reedirectPage', compact('link'));
+		}catch(\Exception $e){
+			return redirect('/');
+		}
+    }
+
+	private function addData($link, $opc = 0){
 
 		$getIP = new GetIP();
 		$clics = Clics::all();
@@ -47,11 +60,16 @@ class UrlController extends Controller
 
 		if(count($dateVisits) == 0){
 			$visita = $getIP->registerVisits();
-			$this->registerClics($visita->id, $link);
+			$this->registerClics($visita->id, $link, $opc);
 		}else{
 			foreach ($dateVisits as $visit) {
 
-					$linkName = $link->name;
+					if($opc==1){
+						$linkName = $link->enlace;
+					}else{
+						$linkName = $link->name;
+					}
+					
 					$clicsVisits = $getIP->getClicVisits($fecha_actual, $visit['id']);
 					$exists = false;
 
@@ -70,7 +88,7 @@ class UrlController extends Controller
 
 					}else{
 						
-						$this->registerClics($visit['id'], $link);
+						$this->registerClics($visit['id'], $link, $opc);
 						\Log::info('Dio clic en otro enlace' . $visit['ip']);
 						
 					}
@@ -83,13 +101,18 @@ class UrlController extends Controller
 	}
 
 
-	public function registerClics($visitanteID, $link)
+	public function registerClics($visitanteID, $link, $opc = 0)
 	{
 		$clic = new Clics;
 		try{
-
 			$clic->visit()->associate($visitanteID);
-			$clic->name = $link->name;
+
+			if($opc==1){
+				$clic->name = $link->enlace;
+			}else{
+				$clic->name = $link->name;
+			}
+			
 			$clic->save();
 
 		}catch(\Exception $e){

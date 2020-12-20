@@ -41,7 +41,7 @@
 							</div>
 						</div>
 
-						<div class="form-group row">
+						{{-- <div class="form-group row">
 							<label for="preview" class="col-sm-3 text-right control-label col-form-label">Ventana Emergente</label>
 							<div class="col-sm-9">
 								<div class="custom-file">
@@ -50,7 +50,7 @@
 
 								</div>
 							</div>
-						</div>
+						</div> --}}
 
 						<div class="form-group row">
 							<label for="status" class="col-sm-3 text-right control-label col-form-label">Estado</label>

@@ -22,6 +22,7 @@ Route::get('/register', function(){
 
 Route::get('/url/{id}', 'UrlController@enlace');
 Route::get('/footer/{id}', 'UrlController@footer');
+Route::get('/direct/{alias}', 'UrlController@direct');
 
 
 
@@ -41,6 +42,17 @@ Route::post('/links/create', 'LinkController@store');
 Route::get('/links/{link}/edit', 'LinkController@edit');
 Route::put('/links/{link}', 'LinkController@update');
 Route::delete('/links/{link}', 'LinkController@destroy');
+
+// RUTAS PARA LA GENERACION DE ENLACES DIRECTOS
+Route::get('/link-directo', 'EnlacesDirectosController@index');
+Route::get('/link-directo/crear', 'EnlacesDirectosController@vistaCrear');
+Route::post('/link-directo/crear', 'EnlacesDirectosController@store');
+Route::get('/link-directo/editar/{id}', 'EnlacesDirectosController@vistaEditar');
+Route::put('/link-directo/editar/{id}', 'EnlacesDirectosController@update');
+Route::delete('/link-directo/eliminar/{id}', 'EnlacesDirectosController@destroy');
+
+
+
 
 Route::get('/footers', 'FooterController@index');
 Route::get('/footers/{id}/edit', 'FooterController@edit');
