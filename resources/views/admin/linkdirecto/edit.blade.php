@@ -65,7 +65,7 @@
 							<label for="preview" class="col-sm-3 text-right control-label col-form-label">Imagen de Fondo</label>
 							<div class="col-sm-9">
 								<div class="custom-file">
-									<input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen" accept="image/png, .jpeg, .jpg, image/gif" required>
+									<input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen" accept="image/png, .jpeg, .jpg, image/gif">
 								</div>
 							</div>
 						</div>

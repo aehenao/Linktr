@@ -86,7 +86,7 @@
     </style>
 </head>
 
-<body style=" background: url({{ asset($link->imagen) }});">
+<body style=" background: url({{ asset($link->imagen) }}) no-repeat center center fixed;">
     <span id="data" time="{{ $link->tiempo_espera }}" style="display: none;" destino="{{ $link->destino }} "></span>
 
     <div class="wrapper">
