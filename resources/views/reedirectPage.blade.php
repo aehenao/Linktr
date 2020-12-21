@@ -25,7 +25,7 @@
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
-            background-size: cover !important;
+            background-size: 100% 100% !important;
         }
 
         .gradient {
