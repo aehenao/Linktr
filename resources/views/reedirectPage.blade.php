@@ -25,7 +25,7 @@
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
-            background-size: cover;
+            background-size: cover !important;
         }
 
         .gradient {
@@ -86,7 +86,7 @@
     </style>
 </head>
 
-<body style=" background: url({{ asset($link->imagen) }});">
+<body style=" background: url({{ asset($link->imagen) }}) ;">
     <span id="data" time="{{ $link->tiempo_espera }}" style="display: none;" destino="{{ $link->destino }} "></span>
 
     <div class="wrapper">
