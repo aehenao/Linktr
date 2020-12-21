@@ -49,6 +49,10 @@
 							<label for="status" class="col-sm-3 text-right control-label col-form-label">Tiempo de Espera</label>
 							<div class="col-sm-9">
 								<select class="form-control" name="tiempo_espera">
+									<option value="1" @if($link->tiempo_espera == 1) selected @endif>1s</option>
+									<option value="2" @if($link->tiempo_espera == 2) selected @endif>2s</option>
+									<option value="3" @if($link->tiempo_espera == 3) selected @endif>3s</option>
+									<option value="4" @if($link->tiempo_espera == 4) selected @endif>4s</option>
 									<option value="5" @if($link->tiempo_espera == 5) selected @endif >5s</option>
                                     <option value="10" @if($link->tiempo_espera == 10) selected @endif>10s</option>
                                     <option value="15" @if($link->tiempo_espera == 15) selected @endif>15s</option>
@@ -61,9 +65,7 @@
 							<label for="preview" class="col-sm-3 text-right control-label col-form-label">Imagen de Fondo</label>
 							<div class="col-sm-9">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" name="imagen" accept="image/png, .jpeg, .jpg, image/gif" >
-									<label class="custom-file-label" for="preview">Seleccione una imagen...</label>
-
+									<input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen" accept="image/png, .jpeg, .jpg, image/gif" required>
 								</div>
 							</div>
 						</div>

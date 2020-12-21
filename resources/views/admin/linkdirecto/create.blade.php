@@ -48,6 +48,10 @@
 							<label for="status" class="col-sm-3 text-right control-label col-form-label">Tiempo de Espera</label>
 							<div class="col-sm-9">
 								<select class="form-control" name="tiempo_espera">
+									<option value="1">1s</option>
+									<option value="2">2s</option>
+									<option value="3">3s</option>
+									<option value="4">4s</option>
 									<option value="5">5s</option>
                                     <option value="10">10s</option>
                                     <option value="15">15s</option>
@@ -60,8 +64,7 @@
 							<label for="preview" class="col-sm-3 text-right control-label col-form-label">Imagen de Fondo</label>
 							<div class="col-sm-9">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" name="imagen" accept="image/png, .jpeg, .jpg, image/gif" required>
-									<label class="custom-file-label" for="preview">Seleccione una imagen...</label>
+    								<input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen" accept="image/png, .jpeg, .jpg, image/gif" required>
 
 								</div>
 							</div>

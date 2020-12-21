@@ -184,7 +184,7 @@ div {
     max-width: 500px;
     width: auto;
     display: block;
-    margin: 15px auto;
+    margin: 5px auto;
 }
 
 .link {
@@ -244,7 +244,7 @@ div {
 }
 
 .user-profile__social__links {
-    margin: 50px auto 5px;
+    margin: 15px auto 5px;
     position: relative;
     left: 0;
     width: 100%;

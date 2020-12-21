@@ -39,6 +39,9 @@ class UrlController extends Controller
 	{
 		try{
 			$link = $this->enlaceDirecto->where('enlace', '=', $id)->first();
+			if($link->estado == 1) //En caso de que el enlace este desactivado.
+				return redirect('/');
+
 			$this->addData($link, 1);
 			return view('reedirectPage', compact('link'));
 		}catch(\Exception $e){
